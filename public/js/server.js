@@ -11,7 +11,7 @@ app.use(fileupload());
  * -> Route for Editor
  * -> Route for Upload
  */
-app.get("/", (req, res) => {
+app.get("/", (req, res    ) => {
   res.sendFile(path.join(__dirname, "../html", "home.html"));
 });
 

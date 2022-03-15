@@ -2,13 +2,13 @@ const blogTitle = document.querySelector(".title");
 const article = document.querySelector(".article");
 
 const img = document.querySelector(".img");
-const imgUpload = document.querySelector(".imgInput");
+const imgUpload = document.querySelector(".img-input");
 let imgPath;
 const publishBtn = document.querySelector(".publish-btn");
-const uploadInput = document.querySelector(".imgUpload");
+const uploadInput = document.querySelector(".img-upload");
 
 img.addEventListener("change", () => {
-  uploadImage(img, "imgUpload");
+  uploadImage(img, "img-upload");
 });
 
 uploadInput.addEventListener("change", () => {
@@ -21,13 +21,13 @@ const uploadImage = (uploadFile, uploadType) => {
     const formdata = new FormData();
     formdata.append("image", file);
 
-    fetch("/upload", {
+    fetch("/uploads", {
       method: "POST",
       body: formdata,
     })
       .then((res) => res.json())
       .then((data) => {
-        if (uploadType == "image") {
+        if (uploadType === "image") {
           addImage(data, file.name);
         } else {
           imgPath = `${location.origin}/${data}`;
@@ -61,4 +61,33 @@ let months = [
   "Dec",
 ];
 
-publishBtn;
+publishBtn.addEventListener("click", () => {
+  if (article.value.length && blogTitle.value.split(" ").join("-")) {
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+    let blogTitle = blogTitle.value.split(" ").join("-");
+    let id = "";
+    for (let i = 0; i < 4; i++) {
+      id += Math.random() * letters.length;
+    }
+
+    let docName = `${blogTitle}-${id}`;
+    let date = new Date();
+
+    db.collection("blogs")
+      .doc(docName)
+      .set({
+        title: blogTitle,
+        article: article,
+        img: imgPath,
+        publishedDate: `${date.getDate()} 
+          ${months[date.getMonth()]} 
+          ${date.getFullYear()}`,
+      })
+      .then(() => {
+        console.log("Date entered");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+});
