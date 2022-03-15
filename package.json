@@ -2,7 +2,7 @@
   "name": "blogjs",
   "version": "1.0.0",
   "description": "My first blog in JavaScript",
-  "main": "public/Js/server.js",
+  "main": "public/js/server.js",
   "scripts": {
     "start": "nodemon server.js"
   },

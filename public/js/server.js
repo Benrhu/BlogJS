@@ -12,7 +12,7 @@ app.use(fileupload());
  * -> Route for Upload
  */
 app.get('/', (req, res) => {
-    res.sendFile('home.html');
+    res.sendFile('/home.html');
 })
 
 app.get('/editor', (req, res) => {
