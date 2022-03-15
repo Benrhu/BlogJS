@@ -1,18 +1,18 @@
 const blogTitle = document.querySelector(".title");
 const article = document.querySelector(".article");
 
-const img = document.querySelector(".img");
-const imgUpload = document.querySelector(".img-input");
+const img = document.querySelector(".img-box");
+const imgInput = document.querySelector("#img-input");
 let imgPath;
 const publishBtn = document.querySelector(".publish-btn");
-const uploadInput = document.querySelector(".img-upload");
+const uploadInput = document.querySelector("#img-upload");
 
-img.addEventListener("change", () => {
-  uploadImage(img, "img-upload");
+imgInput.addEventListener('change', () => {
+  uploadImage(imgInput, "img-box");
 });
 
 uploadInput.addEventListener("change", () => {
-  uploadImage(img, "image");
+  uploadImage(uploadInput, "img");
 });
 
 const uploadImage = (uploadFile, uploadType) => {
@@ -21,9 +21,9 @@ const uploadImage = (uploadFile, uploadType) => {
     const formdata = new FormData();
     formdata.append("image", file);
 
-    fetch("/uploads", {
+    fetch('/uploads/', {
       method: "POST",
-      body: formdata,
+      body: formdata
     })
       .then((res) => res.json())
       .then((data) => {
@@ -65,7 +65,7 @@ publishBtn.addEventListener("click", () => {
   if (article.value.length && blogTitle.value.split(" ").join("-")) {
     let letters = "abcdefghijklmnopqrstuvwxyz";
     let blogTitle = blogTitle.value.split(" ").join("-");
-    let id = "";
+    let id = '';
     for (let i = 0; i < 4; i++) {
       id += Math.random() * letters.length;
     }
