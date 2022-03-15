@@ -2,11 +2,9 @@ const express = require('express');
 const path = require('path');
 const fileupload = require('express-fileupload');
 
-let initial_path = path.join(__dirname, "../");
-
 const app = express();
-app.use(express.static(initial_path))
-app.use(fileupload())
+app.use(express.static("public"));
+app.use(fileupload());
 
 /** Routes
  * -> Route for Home
@@ -14,11 +12,11 @@ app.use(fileupload())
  * -> Route for Upload
  */
 app.get('/', (req, res) => {
-    res.sendFile(path.join(initial_path, 'home.html'));
+    res.sendFile('home.html');
 })
 
 app.get('/editor', (req, res) => {
-    res.sendFile(path.join(initial_path, 'editor.html'))
+    res.sendFile( 'editor.html');
 })
 
 // Upload links
