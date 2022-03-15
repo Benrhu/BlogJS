@@ -12,11 +12,11 @@ app.use(fileupload());
  * -> Route for Upload
  */
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, '../html', "home.html"));
+  res.sendFile(path.join(__dirname, "../html", "home.html"));
 });
 
 app.get("/editor", (req, res) => {
-  res.sendFile(path.join("editor.html"));
+  res.sendFile(path.join(__dirname, "../html", "editor.html"));
 });
 
 // Upload links

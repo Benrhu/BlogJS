@@ -76,7 +76,7 @@ body {
   text-transform: capitalize;
 }
 
-.sectionBlogs {
+.section-blogs {
   width: 100%;
   padding: 50px 5vw;
   display: grid;
@@ -84,17 +84,17 @@ body {
   grid-gap: 80px;
 }
 
-.imgSection {
+.img-section {
   width: 100%;
   height: 100%;
 }
 
-.textSection {
+.text-section {
   align-items: center;
   text-align: center;
 }
 
-.blogImg {
+.blog-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -102,7 +102,7 @@ body {
   margin-bottom: 10px;
 }
 
-.blogExtract {
+.blog-extract {
   margin: 10px 0 20px;
   line-height: 30px;
 }
