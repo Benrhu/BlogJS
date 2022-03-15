@@ -1,0 +1,17 @@
+{
+  "name": "blogjs",
+  "version": "1.0.0",
+  "description": "My first blog in JavaScript",
+  "main": "./Js/server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Rubdh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-fileupload": "^1.3.1",
+    "express.js": "^1.0.0",
+    "nodemon": "^2.0.15"
+  }
+}

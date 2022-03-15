@@ -1,0 +1,78 @@
+.img{
+    width: 399px;
+    height: 400px;
+    position: relative;
+    background-size: cover;
+    background: white;
+    text-align: center;
+    display: inline-block;
+}
+
+.imgBox{
+    text-align: center;
+}
+
+.img-upload{
+    margin-top: 100px;
+    color: transparent;
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: gray;
+    text-align: center;
+}
+
+.input{
+    text-align: center;
+    width: 100%;
+    margin-top: 555px;
+    display: inline;
+    border-radius:20px;
+}
+.img-upload::placeholder {
+    font-size:30px;
+
+}
+
+.blog{
+    width: 70vw;
+    min-width: 400px;
+    height: 100px;
+    display: block;
+    margin: auto;
+    padding: 50px 0;
+    text-align: center
+}
+
+.title, .article{
+    width: 50%;
+    height: 50px;
+    outline: none;
+    font-size: 25px;
+    font-weight: 600;
+    color: aqua;
+    resize: none;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input::-webkit-scrollbar{
+    width: 10px;
+}
+
+input::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,0.1);
+}
+
+.article{
+    height:auto;
+    font-size:20px;
+    margin-top: 20px;
+    line-height: 30px;
+    font-weight:500;
+    padding-bottom:100px;
+    white-space:pre-wrap;
+
+}
