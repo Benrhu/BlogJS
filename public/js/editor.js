@@ -31,7 +31,7 @@ const uploadImage = (uploadFile, uploadType) => {
           addImage(data, file.name);
         } else {
           imgPath = `${location.origin}/${data}`;
-          imgUpload.style.backgroundImage = `url("${imgPath}")`;
+          img.style.backgroundImage = `url("${imgPath}")`;
         }
       });
   } else {
@@ -73,6 +73,7 @@ publishBtn.addEventListener("click", () => {
     let docName = `${blogTitle}-${id}`;
     let date = new Date();
 
+    // Find solution
     db.collection("blogs")
       .doc(docName)
       .set({
