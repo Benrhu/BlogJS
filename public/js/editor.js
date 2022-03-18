@@ -1,9 +1,11 @@
+import { db } from './firebase'
+
 const blogTitle = document.querySelector(".title");
 const article = document.querySelector(".article");
 
 const img = document.querySelector(".img-box");
 const imgInput = document.querySelector("#img-input");
-let imgPath;
+let imgPath = '/uploads';
 const publishBtn = document.querySelector(".publish-btn");
 const uploadInput = document.querySelector("#img-upload");
 
@@ -64,7 +66,7 @@ let months = [
 publishBtn.addEventListener("click", () => {
   if (article.value.length && blogTitle.value.split(" ").join("-")) {
     let letters = "abcdefghijklmnopqrstuvwxyz";
-    let blogTitle = blogTitle.value.split(" ").join("-");
+    let blogTitle = "";
     let id = '';
     for (let i = 0; i < 4; i++) {
       id += Math.random() * letters.length;
@@ -74,15 +76,13 @@ publishBtn.addEventListener("click", () => {
     let date = new Date();
 
     // Find solution
-    db.collection("blogs")
+  db.collection("blogs")
       .doc(docName)
       .set({
         title: blogTitle,
         article: article,
         img: imgPath,
-        publishedDate: `${date.getDate()} 
-          ${months[date.getMonth()]} 
-          ${date.getFullYear()}`,
+        publishedDate: `${date.getDate()} ${months[date.getMonth()]} Mmm${date.getFullYear()}`,
       })
       .then(() => {
         console.log("Date entered");
