@@ -3,8 +3,8 @@ const path = require('path');
 const fileupload = require('express-fileupload');
 
 const app = express();
-app.use(express.static("public"));
-app.use(fileupload());
+app.use(express.static('public'));
+app.use(fileupload(undefined));
 
 /** Routes
  * -> Route for Home

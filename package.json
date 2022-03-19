@@ -9,12 +9,13 @@
   "author": "Rubdh",
   "license": "ISC",
   "dependencies": {
+    "@firebase/app": "^0.7.19",
     "@firebase/app-compat": "^0.1.20",
     "@firebase/firestore": "^3.4.5",
     "express": "^4.17.3",
     "express-fileupload": "^1.3.1",
     "express.js": "^1.0.0",
-    "firebase": "^9.6.8",
+    "firebase": "^9.6.9",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
