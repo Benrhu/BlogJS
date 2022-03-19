@@ -1,11 +1,11 @@
-import { db } from './firebase'
+import { db } from 'firebase'
 
 const blogTitle = document.querySelector(".title");
 const article = document.querySelector(".article");
 
 const img = document.querySelector(".img-box");
 const imgInput = document.querySelector("#img-input");
-let imgPath = '/uploads';
+let imgPath = '.';
 const publishBtn = document.querySelector(".publish-btn");
 const uploadInput = document.querySelector("#img-upload");
 
@@ -21,14 +21,14 @@ const uploadImage = (uploadFile, uploadType) => {
   const [file] = uploadFile.files;
   if (file && file.type.includes("image")) {
     const formdata = new FormData();
-    formdata.append("image", file);
+    formdata.append('image', file);
 
-    fetch('/uploads/', {
-      method: "POST",
+    fetch('../uploads', {
+      method: 'post',
       body: formdata
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res=> res.json())
+      .then(data => {
         if (uploadType === "image") {
           addImage(data, file.name);
         } else {

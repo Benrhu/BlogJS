@@ -1,6 +1,6 @@
-const express = require("express");
-const path = require("path");
-const fileupload = require("express-fileupload");
+const express = require('express');
+const path = require('path');
+const fileupload = require('express-fileupload');
 
 const app = express();
 app.use(express.static("public"));
@@ -21,16 +21,16 @@ app.get("/editor", (req, res) => {
 
 // Upload links
 
-app.post("/upload", (req, res) => {
+app.post('../uploads', (req, res) => {
   let file = req.files.image;
-  let path = "BlogJS/uploads" + imageName;
+  let path = '../uploads' + imageName;
   let imageName = date.getDate + date.getTime + file.name;
   let date = new Date();
   file.mv(path, (err, result) => {
     if (err) {
       throw err;
     } else {
-      res.json(`uploads/${imageName}`);
+      res.json(`../uploads/${imageName}`);
     }
   });
 });
